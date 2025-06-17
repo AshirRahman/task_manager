@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../utils/assets_path.dart';
 
 class ScreenBackground extends StatelessWidget {
@@ -17,7 +16,7 @@ class ScreenBackground extends StatelessWidget {
           height: double.maxFinite,
           width: double.maxFinite,
         ),
-        child,
+        SafeArea(child: child),
       ],
     );
   }
