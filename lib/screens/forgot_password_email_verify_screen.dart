@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/screens/forgot_password_verify_otp_screen.dart';
 // import 'package:task_manager/screens/sign_in_screen.dart';
 // import 'package:task_manager/screens/sign_up_screen.dart';
 import 'package:task_manager/utils/app_colors.dart';
@@ -50,7 +51,9 @@ class _ForgotPasswordEmailVerifyScreenState extends State<ForgotPasswordEmailVer
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, ForgotPasswordVerifyOtpScreen.name);
+                    },
                     child: Icon(Icons.arrow_forward),
                   ),
                   const SizedBox(height: 48),
