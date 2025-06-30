@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/controllers/auth_controller.dart';
+import 'package:task_manager/data/models/user_model.dart';
 import 'package:task_manager/data/services/network_caller.dart';
 import 'package:task_manager/data/utils/urls.dart';
 import 'package:task_manager/screens/forgot_password_email_verify_screen.dart';
@@ -124,6 +126,9 @@ class _SignInScreenState extends State<SignInScreen> {
       body: requestBody,
     );
     if (response.isSuccess) {
+      String token = response.responseData!['token'];
+      UserModel userModel = UserModel.fromJson(response.responseData!['data']);
+      await AuthController.saveUserData(token, userModel);
       Navigator.pushReplacementNamed(context, MainBottomNavScreen.name);
     } else {
       _signInProgress = false;
